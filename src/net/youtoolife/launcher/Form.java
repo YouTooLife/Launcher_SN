@@ -90,6 +90,7 @@ public class Form extends JPanel implements ActionListener, Runnable {
         		System.out.println(e.getX()+" "+ e.getY());
 				if (e.getX()>=(Main.width/2-180/2) && e.getX()<=(Main.width/2+180/2)
 						&& e.getY()>=(150) && e.getY()<=(150+53)) {
+					System.out.println("update");
 					upDate();
 				}
 			}
@@ -98,6 +99,7 @@ public class Form extends JPanel implements ActionListener, Runnable {
         		System.out.println(e.getX()+" "+ e.getY());
 				if (e.getX()>=(Main.width/2-180/2) && e.getX()<=(Main.width/2+180/2)
 						&& e.getY()>=(150) && e.getY()<=(150+53)) {
+					System.out.println("play");
 					play();
 				}
 			}
@@ -178,8 +180,8 @@ public class Form extends JPanel implements ActionListener, Runnable {
 	public void play() {
 		try {
 			Runtime.getRuntime().exec("java -jar "+Main.dir+"Supernova.jar");
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			upDate();
 		}
 	}
